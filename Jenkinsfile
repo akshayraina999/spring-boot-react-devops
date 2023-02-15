@@ -23,7 +23,7 @@ pipeline{
         stage("Compile"){
             steps{
                 echo "========Compiling Code========"
-                sh 'mvn clean install -DskipTests'
+                sh 'mvn clean install'
             }
         }
         stage("SCM for DevOps files"){
