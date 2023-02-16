@@ -19,7 +19,7 @@ pipeline{
         stage("Java SCM Checkout"){
             steps{
                 echo "========Java Code Checkout========"
-                git branch: "${params.BRANCH}", url: 'https://github.com/akshayraina999/spring-boot-react-app.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/akshayraina999/spring-boot-react-app'
             }
         }
         stage("Compile"){
