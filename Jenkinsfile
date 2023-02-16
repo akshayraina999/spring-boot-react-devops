@@ -11,15 +11,15 @@ pipeline{
 
     parameters{
         // gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-        // gitParameter branchFilter: 'origin.*/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'GitParameterDefinition'
-        gitParameter branch: '', branchFilter: '.*', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
+        gitParameter branchFilter: 'origin.*/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+        // gitParameter branch: '', branchFilter: '.*', defaultValue: 'master', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
     }
 
     stages{
         stage("Java SCM Checkout"){
             steps{
                 echo "========Java Code Checkout========"
-                git branch: "${params.BRANCH}", url: 'https://github.com/akshayraina999/spring-boot-react-app'
+                git branch: "${params.BRANCH}", url: 'https://github.com/akshayraina999/spring-boot-react-app.git'
             }
         }
         stage("Compile"){
