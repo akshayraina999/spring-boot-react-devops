@@ -51,7 +51,7 @@ pipeline{
             steps{
                 echo "========Transferring files to Kubernetes Server========"
                 sshagent(['ansible_server']){
-                    sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 mkdir /home/ubuntu/${JOB_NAME}-scripts/'
+                    sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 [ -d /home/ubuntu/${JOB_NAME}-scripts ] || mkdir /home/ubuntu/${JOB_NAME}-scripts/'
                     sh 'scp /var/lib/jenkins/workspace/${JOB_NAME}/make_dir.sh root@10.154.14.18:/home/ubuntu/${JOB_NAME}-scripts/'
                     sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 chmod +x /home/ubuntu/${JOB_NAME}-scripts/make_dir.sh'
                     sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 /home/ubuntu/${JOB_NAME}-scripts/make_dir.sh ${JOB_NAME}'
