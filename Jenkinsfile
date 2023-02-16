@@ -53,8 +53,8 @@ pipeline{
                 sshagent(['ansible_server']){
                     sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 mkdir /home/ubuntu/${JOB_NAME}/'
                     sh 'scp /var/lib/jenkins/workspace/${JOB_NAME}/make_dir.sh root@10.154.14.18:/home/ubuntu/${JOB_NAME}/'
-                    sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 chmod +x /home/ubuntu/${JOB_NAME}/create_dir.sh'
-                    sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 /home/ubuntu/${JOB_NAME}/create_dir.sh ${JOB_NAME}'
+                    sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 chmod +x /home/ubuntu/${JOB_NAME}/make_dir.sh'
+                    sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 /home/ubuntu/${JOB_NAME}/make_dir.sh ${JOB_NAME}'
                     sh 'ssh -o StrictHostKeyChecking=no root@10.154.14.18 cd /home/ubuntu/spring-boot-websocket/'
                     sh 'scp /var/lib/jenkins/workspace/${JOB_NAME}/playbook.yml root@10.154.14.18:/home/ubuntu/${JOB_NAME}/'
                 }
